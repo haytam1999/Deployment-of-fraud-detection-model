@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html style="overflow-y: scroll;">
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Fraud Detection from Customer Transactions</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  
+</head>
+
+<body>
+  <div class="login">
+	<h1>Fraud or Not?</h1>
+  <img src="static/cards.jpg" style="height: 200px;width: 400px;"/>
+
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+      <input type="text" name="experience" placeholder="TransactionAmt" required="required" />
+      <input type="text" name="test_score" placeholder="TransactionID" required="required" />
+
+      <input type="text" name="interview_score" placeholder="P_emaildomain" required="required" />
+      <input type="text" name="R_emaildomain" placeholder="R_emaildomain" required="required" />
+
+      <input type="text" name="card1" placeholder="card1" required="required" />
+      <input type="text" name="card2" placeholder="card2" required="required" />
+      <input type="text" name="card3" placeholder="card3" required="required" />
+      <input type="text" name="card5" placeholder="card5" required="required" />
+      <input type="text" name="card6" placeholder="card6" required="required" />
+
+      <input type="text" name="addr1" placeholder="addr1" required="required" />
+      <input type="text" name="dist1" placeholder="dist1" required="required" />
+
+      <input type="text" name="C1" placeholder="C1" required="required" />
+      <input type="text" name="C6" placeholder="C6" required="required" />
+      <input type="text" name="C11" placeholder="C11" required="required" />
+      <input type="text" name="C13" placeholder="C13" required="required" />
+      <input type="text" name="C14" placeholder="C14" required="required" />
+
+      <input type="text" name="D1" placeholder="D1" required="required" />
+      <input type="text" name="D2" placeholder="D2" required="required" />
+      <input type="text" name="D4" placeholder="D4" required="required" />
+      <input type="text" name="D15" placeholder="D15" required="required" />
+
+
+    
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
